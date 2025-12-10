@@ -202,7 +202,6 @@
       });
     });
 
-    // default collapse for all? keep open
     // Search
     const search = document.getElementById('search');
     if (search) {
@@ -215,30 +214,39 @@
       });
     }
 
-    // Print
-    document.getElementById('printBtn').addEventListener('click', ()=> window.print());
+    // Print (guarded)
+    const printBtn = document.getElementById('printBtn');
+    if (printBtn) printBtn.addEventListener('click', ()=> window.print());
 
-    // Download HTML
-    document.getElementById('downloadBtn').addEventListener('click', ()=>{
-      const html = `<!doctype html>
-${document.documentElement.outerHTML}`;
+    // Download HTML (guarded - element may be absent)
+    const downloadBtn = document.getElementById('downloadBtn');
+    if (downloadBtn) {
+      downloadBtn.addEventListener('click', ()=>{
+        const html = `<!doctype html>\n${document.documentElement.outerHTML}`;
+        const blob = new Blob([html], {type: 'text/html'});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = 'tax_guide_armenia.html';
+        document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+      });
+    }
 
-      const blob = new Blob([html], {type: 'text/html'});
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url; a.download = 'tax_guide_armenia.html';
-      document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
-    });
+    // Mobile toggle (guarded)
+    const mobileToggleBtn = document.getElementById('mobileToggle');
+    if (mobileToggleBtn) {
+      mobileToggleBtn.addEventListener('click', ()=>{
+        const menu = document.querySelector('aside');
+        if (!menu) return alert('Մենյու բաց՝ մեծ էկրանին հասանելի է');
+        menu.classList.toggle('hidden');
+        // improve accessibility state
+        const expanded = mobileToggleBtn.getAttribute('aria-expanded') === 'true';
+        mobileToggleBtn.setAttribute('aria-expanded', String(!expanded));
+      });
+    }
 
-    // Mobile toggle (simple drawer)
-    document.getElementById('mobileToggle').addEventListener('click', ()=>{
-      const menu = document.querySelector('aside');
-      if (!menu) return alert('Մենյու բաց՝ մեծ էկրանին հասանելի է');
-      menu.classList.toggle('hidden');
-    });
-
-    // Download PDF (simple approach: print to PDF via print dialog)
-    document.getElementById('downloadPdf').addEventListener('click', ()=> window.print());
+    // Download PDF (simple approach: print to PDF via print dialog) - guarded
+    const downloadPdfBtn = document.getElementById('downloadPdf');
+    if (downloadPdfBtn) downloadPdfBtn.addEventListener('click', ()=> window.print());
 
     // Accessibility: focus outline
     document.addEventListener('keydown', (e)=>{
