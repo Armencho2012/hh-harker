@@ -237,9 +237,43 @@
       });
     }
 
-    // TOC is visible at all sizes; mobile drawer removed so toggle is hidden.
+    // Mobile drawer toggle: open/close TOC on small screens
     const mobileToggleBtn = document.getElementById('mobileToggle');
-    if (mobileToggleBtn) mobileToggleBtn.setAttribute('aria-expanded','true');
+    const siteToc = document.getElementById('siteToc');
+    const drawerOverlay = document.getElementById('drawerOverlay');
+
+    function openDrawer(){
+      if (!siteToc) return;
+      siteToc.classList.remove('hidden');
+      // ensure transition runs
+      requestAnimationFrame(()=> siteToc.classList.add('open'));
+      if (drawerOverlay) drawerOverlay.classList.add('visible');
+      if (mobileToggleBtn) mobileToggleBtn.setAttribute('aria-expanded','true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer(){
+      if (!siteToc) return;
+      siteToc.classList.remove('open');
+      if (drawerOverlay) drawerOverlay.classList.remove('visible');
+      if (mobileToggleBtn) mobileToggleBtn.setAttribute('aria-expanded','false');
+      document.body.style.overflow = '';
+      // hide after transition completes
+      setTimeout(()=>{
+        if (!siteToc.classList.contains('open')) siteToc.classList.add('hidden');
+      }, 260);
+    }
+
+    if (mobileToggleBtn){
+      mobileToggleBtn.addEventListener('click', ()=>{
+        if (!siteToc) return;
+        const isOpen = siteToc.classList.contains('open');
+        if (isOpen) closeDrawer(); else openDrawer();
+      });
+    }
+
+    if (drawerOverlay) drawerOverlay.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') closeDrawer(); });
 
     // Download PDF (simple approach: print to PDF via print dialog) - guarded
     const downloadPdfBtn = document.getElementById('downloadPdf');
@@ -252,5 +286,3 @@
   </script>
 </body>
 </html>
-
-this is final code bu the 3 lines arent working
