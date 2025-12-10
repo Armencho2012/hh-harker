@@ -18,90 +18,234 @@
   </style>
 </head>
 <body class="antialiased bg-gray-50 text-gray-800">
-
-<!-- Header -->
-<header class="bg-white shadow sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
-    <div class="flex items-center gap-4">
-      <h1 class="text-lg font-semibold">ՀՀ Հարկային Համակարգ — Ուղեցույց</h1>
+  <!-- Header -->
+  <header class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div>
+          <h1 class="text-lg font-semibold">ՀՀ Հարկային Համակարգ — Ուղեցույց</h1>
+          <p class="text-sm text-gray-500">Պրոֆեսիոնալ կրթական ռեսուրս՝ պարզ կառուցվածքով</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <input id="search" class="hidden md:block border rounded px-3 py-2 text-sm" placeholder="Որոնել բաժիններում..." aria-label="search" />
+        <button id="printBtn" class="px-3 py-2 rounded border text-sm">Տպել / Պահել PDF</button>
+        <button id="mobileToggle" class="md:hidden px-3 py-2 rounded border">☰</button>
+      </div>
     </div>
-    <div class="flex items-center gap-3">
-      <input id="search" class="hidden md:block border rounded px-3 py-2 text-sm" placeholder="Որոնել բաժիններում..." />
-      <button id="printBtn" class="px-3 py-2 rounded border text-sm">Տպել / PDF</button>
-      <button id="mobileToggle" class="md:hidden px-3 py-2 rounded border">☰</button>
-    </div>
-  </div>
-</header>
+  </header>
 
-<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid lg:grid-cols-4 gap-6">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid lg:grid-cols-4 gap-6">
+    <!-- Sidebar / TOC -->
+    <aside class="lg:col-span-1 hidden lg:block sticky top-20 self-start">
+      <div class="card">
+        <h2 class="font-semibold mb-3">Բովանդակություն</h2>
+        <nav aria-label="Table of contents" class="space-y-2 text-sm">
+          <a class="block toc-item text-accent hover:underline" href="#excise">Ակցիզային հարկ</a>
+          <a class="block toc-item text-accent hover:underline" href="#environment">Բնապահպանական հարկ</a>
+          <a class="block toc-item text-accent hover:underline" href="#marks">Արտադրանք՝ դրոշմանիշեր</a>
+          <a class="block toc-item text-accent hover:underline" href="#fee">Պետական տուրք</a>
+          <a class="block toc-item text-accent hover:underline" href="#property">Գույքային հարկեր</a>
+          <a class="block toc-item text-accent hover:underline" href="#turnover">Շրջանառության հարկ</a>
+          <a class="block toc-item text-accent hover:underline" href="#social">Սոցիալական վճար</a>
+        </nav>
+        <hr class="my-3" />
+        <p class="text-xs text-gray-500">Նշում. տվյալ կայքը ուսուցողական է. պաշտոնական հաշվարկների համար դիմեք օրենսդրությանը կամ մասնագետին:</p>
+      </div>
+    </aside>
 
-<!-- Sidebar -->
-<aside id="sidebar" class="lg:col-span-1 hidden lg:block sticky top-20 self-start
-       md:bg-white bg-white md:static fixed md:shadow-none shadow-xl md:w-auto w-64 
-       md:h-auto h-full left-0 top-16 z-50 p-4 transition-all duration-200">
-  <div class="card">
-    <h2 class="font-semibold mb-3">Բովանդակություն</h2>
-    <nav class="space-y-2 text-sm">
-      <a class="block toc-item text-accent hover:underline" href="#excise">Ակցիզային հարկ</a>
-      <a class="block toc-item text-accent hover:underline" href="#environment">Բնապահպանական հարկ</a>
-      <a class="block toc-item text-accent hover:underline" href="#marks">Դրոշմանիշեր</a>
-      <a class="block toc-item text-accent hover:underline" href="#fee">Պետական տուրք</a>
-      <a class="block toc-item text-accent hover:underline" href="#property">Գույքային հարկեր</a>
-      <a class="block toc-item text-accent hover:underline" href="#turnover">Շրջանառության հարկ</a>
-      <a class="block toc-item text-accent hover:underline" href="#social">Սոցիալական վճար</a>
-    </nav>
-  </div>
-</aside>
+    <!-- Content -->
+    <section class="lg:col-span-3 space-y-6">
+      <!-- Hero / Summary card -->
+      <div class="card">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <h2 class="text-2xl font-bold">Հետաքրքրասեր արագ մուտք</h2>
+            <p class="mt-2 text-gray-700">Այս էջը ամբողջական ու կառուցվածքային կերպով ներկայացնում է Հայաստանի Հանրապետության հարկային համակարգի կարևոր բաժինները՝ պարզ, ընթեռնելի և օգտագործելի կրթական նպատակներով։</p>
+            <p class="mt-3 text-sm text-gray-500">(Իրատեսական օրինակազմ՝ ներառում է ակցիզային հարկ, բնապահպանական հարկ, պետական տուրք, գույքային հարկեր, շրջանառության հարկ և սոցիալական վճար)</p>
+          </div>
+        </div>
+      </div>
 
-<!-- Content -->
-<section class="lg:col-span-3 space-y-6">
+      <!-- Sections: each with collapsible summary + details for readability -->
 
-  <div class="card">
-    <h2 class="text-2xl font-bold">Հետաքրքրասեր արագ մուտք</h2>
-    <p class="mt-2 text-gray-700">Այստեղ ներկայացված են Հայաստանի հարկերի հիմնական տեսակները պարզ կերպով։</p>
-  </div>
+      <article id="excise" class="card" data-title="Ակցիզային հարկ">
+        <header class="flex items-center justify-between">
+          <h3 class="text-xl font-semibold">Ակցիզային հարկ</h3>
+          <button class="toggleBtn text-sm px-2 py-1 rounded border">փակել</button>
+        </header>
+        <div class="mt-3 content">
+          <p class="text-gray-700">Ակցիզային հարկի գծով հարկման բազան և դրույքաչափերը սահմանվում են օրենսգրքով։ Ակցիզային հարկից ազատումներ՝ արտահանում, ԵԱՏՄ անդամ պետություն արտահանում և այլն:</p>
+          <ul class="mt-3 list-disc pl-5 text-gray-700">
+            <li>Հաշվետու ժամկետներ — մինչև հաշվետու ամսվան հաջորդող ամսվա 20-ը (բացառություններ՝ ներմուծողները):</li>
+            <li>Ժամկետանց տույժ — 0.04% յուրաքանչյուր օր:</li>
+            <li>Ուշ ներկայացման տուգանք — հաշվարկված հարկի 5%:</li>
+          </ul>
+        </div>
+      </article>
 
-  <!-- Articles remain untouched exactly as you provided -->
-  <!-- ----------------------------- -->
+      <article id="environment" class="card" data-title="Բնապահպանական հարկ">
+        <header class="flex items-center justify-between">
+          <h3 class="text-xl font-semibold">Բնապահպանական հարկ</h3>
+          <button class="toggleBtn text-sm px-2 py-1 rounded border">փակել</button>
+        </header>
+        <div class="mt-3 content">
+          <p class="text-gray-700">Գանձվում է մթնոլորտային օդի վնասակար արտանետման, ջրային աղբաջրի արտահոսքի, թափոնների տեղադրման և որոշ ապրանքների ներմուծման համար։</p>
+          <p class="mt-2 text-gray-700">Օրինակ՝ ավտոմեքենաների համար դրույքաչափեր ըստ արտադրության տարվա և ձիաուժի:</p>
+          <ul class="mt-2 list-disc pl-5 text-gray-700">
+            <li>8-րդ և հաջորդող տարիների համար՝ մինչև 50 ձ/ուժ — 5 դրամ; 301+ ձ/ուժ — 50 դրամ/ձիաուժ:</li>
+            <li>Թափոնների տեղադրման դրույքաչափ՝ 60 — 48,000 դրամ (դավդ. կախված դասից):</li>
+            <li>Հաշվետու ժամանակաշրջան — հիմնականում եռամսյակ; վճարում մինչև հաջորդ ամսվա 20-ը:</li>
+            <li>Արտոնություններ՝ հիբրիդ/էլեկտր. տրանսպորտ եւ հաշմանդամների օգտագործած մեքենաներ:</li>
+          </ul>
+        </div>
+      </article>
 
-  <!-- A SINGLE FIX ADDED BELOW IN JS ONLY -->
+      <article id="marks" class="card" data-title="Դրոշմանիշեր">
+        <header class="flex items-center justify-between">
+          <h3 class="text-xl font-semibold">Ակցիզային դրոշմանիշեր և դրոշմապիտակներ</h3>
+          <button class="toggleBtn text-sm px-2 py-1 rounded border">փակել</button>
+        </header>
+        <div class="mt-3 content">
+          <p class="text-gray-700">Արտադրանքները՝ ըստ ԱՏԳԱԱ աղյուսակի (2204-2208, 2402) ենթակա են դրոշմավորման: պարտավոր են ներմուծողներն ու տեղական արտադրողները:</p>
+          <ul class="mt-2 list-disc pl-5 text-gray-700">
+            <li>Չօգտագործված դրոշմանիշերը վերադարձվում են վեց ամսվա ընթացքում:</li>
+            <li>Վնասված դրոշմանիշներն հաշվառվում են յուրաքանչյուր կիսամյակի արդյունքներով մինչև հաջորդ ամսվա 20-ը:</li>
+            <li>Խախտումները կարող են հանգեցնել վարչական/քրեական պատասխանատվության:</li>
+          </ul>
+        </div>
+      </article>
 
-  <article id="excise" class="card"><header><h3 class="text-xl font-semibold">Ակցիզային հարկ</h3><button class="toggleBtn text-sm px-2 py-1 rounded border">փակել</button></header><div class="mt-3 content"><p>…</p></div></article>
-  <article id="environment" class="card"><header><h3 class="text-xl font-semibold">Բնապահպանական հարկ</h3><button class="toggleBtn text-sm px-2 py-1 rounded border">փակել</button></header><div class="mt-3 content"><p>...</p></div></article>
-  <article id="marks" class="card"><header><h3 class="text-xl font-semibold">Դրոշմանիշեր</h3><button class="toggleBtn text-sm px-2 py-1 rounded border">փակել</button></header><div class="mt-3 content"><p>...</p></div></article>
-  <article id="fee" class="card"><header><h3 class="text-xl font-semibold">Պետական տուրք</h3><button class="toggleBtn text-sm px-2 py-1 rounded border">փակել</button></header><div class="mt-3 content"><p>...</p></div></article>
-  <article id="property" class="card"><header><h3 class="text-xl font-semibold">Գույքային հարկեր</h3><button class="toggleBtn text-sm px-2 py-1 rounded border">փակել</button></header><div class="mt-3 content"><p>...</p></div></article>
-  <article id="turnover" class="card"><header><h3 class="text-xl font-semibold">Շրջանառության հարկ</h3><button class="toggleBtn text-sm px-2 py-1 rounded border">փակել</button></header><div class="mt-3 content"><p>...</p></div></article>
-  <article id="social" class="card"><header><h3 class="text-xl font-semibold">Սոցիալական վճար</h3><button class="toggleBtn text-sm px-2 py-1 rounded border">փակել</button></header><div class="mt-3 content"><p>...</p></div></article>
+      <article id="fee" class="card" data-title="Պետական տուրք">
+        <header class="flex items-center justify-between">
+          <h3 class="text-xl font-semibold">Պետական տուրք</h3>
+          <button class="toggleBtn text-sm px-2 py-1 rounded border">փակել</button>
+        </header>
+        <div class="mt-3 content">
+          <p class="text-gray-700">Պետական տուրքը գանձվում է պետական ծառայություններից օգտվելու համար (օր.՝ դատական, նոտարական, լիցենզիաներ):</p>
+          <ul class="mt-2 list-disc pl-5 text-gray-700">
+            <li>Վճարումը մինչև ծառայության մատուցումը:</li>
+            <li>Ժամկետանց տույժ՝ 0.15% օրական:</li>
+            <li>Ավել վճարված գումարը վերադարձնում են մինչև 3 տարվա ընթացքում:</li>
+          </ul>
+        </div>
+      </article>
 
-  <button id="downloadPdf" class="px-4 py-2 rounded accent-bg text-white">Արտահանել PDF</button>
-</section>
-</main>
+      <article id="property" class="card" data-title="Գույքային հարկեր">
+        <header class="flex items-center justify-between">
+          <h3 class="text-xl font-semibold">Գույքային հարկեր</h3>
+          <button class="toggleBtn text-sm px-2 py-1 rounded border">փակել</button>
+        </header>
+        <div class="mt-3 content">
+          <p class="text-gray-700">Անշարժ գույքի և փոխադրամիջոցների գույքահարկերը մուտքագրվում են տեղական (համայնքային) բյուջե.</p>
+          <ul class="mt-2 list-disc pl-5 text-gray-700">
+            <li>Անշարժ գույք — հարկման բազան՝ կադաստրային արժեքը:</li>
+            <li>Փոխադրամիջոցներ — հիմք՝ շարժիչի հզորությունը:</li>
+            <li>Վճարման վերջնաժամկետ՝ դեկտեմբերի 1-ը:</li>
+            <li>Ճանապարհային հարկ՝ չգրանցված բեռնատարների մուտքի և պետական ճանապարհների գովազդի համար:</li>
+          </ul>
+        </div>
+      </article>
 
-<script>
-// collapse
-document.querySelectorAll('.toggleBtn').forEach(b=>{
-  b.onclick=()=>{let c=b.closest('article').querySelector('.content');
-  let h=c.style.display==='none';c.style.display=h?'':'none';b.textContent=h?'փակել':'Բացել';}
-});
+      <article id="turnover" class="card" data-title="Շրջանառության հարկ">
+        <header class="flex items-center justify-between">
+          <h3 class="text-xl font-semibold">Շրջանառության հարկ</h3>
+          <button class="toggleBtn text-sm px-2 py-1 rounded border">փակել</button>
+        </header>
+        <div class="mt-3 content">
+          <p class="text-gray-700">Հատուկ ռեժիմ՝ փոխարինում է ԱԱՀ-ին և/կամ շահութահարկին՝ մինչև 115 մլն դրամ շրջանառություն ունեցող սուբյեկտների համար:</p>
+          <ul class="mt-2 list-disc pl-5 text-gray-700">
+            <li>Առք/վաճառք — 5% (կարող է նվազել մինչև 1.5%):</li>
+            <li>Արտադրություն — 3.5%:</li>
+            <li>Վարձակալություն — 10%:</li>
+            <li>Հաշվետու ժամանակաշրջան — եռամսյակ; վճարում՝ մինչև հաջորդ ամսվա 20-ը:</li>
+          </ul>
+        </div>
+      </article>
 
-// search
-document.getElementById('search').oninput=e=>{
-  let q=e.target.value.toLowerCase();
-  document.querySelectorAll('article.card').forEach(a=>{
-    a.style.display = q && !a.innerText.toLowerCase().includes(q) ? 'none' : '';
-  });
-};
+      <article id="social" class="card" data-title="Սոցիալական վճար">
+        <header class="flex items-center justify-between">
+          <h3 class="text-xl font-semibold">Սոցիալական վճար</h3>
+          <button class="toggleBtn text-sm px-2 py-1 rounded border">փակել</button>
+        </header>
+        <div class="mt-3 content">
+          <p class="text-gray-700">Կուտակային կենսաթոշակային համակարգի համար հաշվարկվող վճար:</p>
+          <ul class="mt-2 list-disc pl-5 text-gray-700">
+            <li>5%՝ մինչև 500,000 դրամ եկամտի համար:</li>
+            <li>10%՝ բարձր եկամուտների համար (հանած 25,000 դրամը):</li>
+            <li>ԱՁ-երի համար, որ վճարում են շրջանառության հարկ — ամսեկան ֆիքսված 5,000 դրամ:</li>
+          </ul>
+        </div>
+      </article>
 
-// mobile sidebar toggle FIXED ✔
-document.getElementById('mobileToggle').onclick=()=>{
-  document.getElementById('sidebar').classList.toggle('hidden');
-};
+      <!-- Actions -->
+      <div class="flex gap-3">
+        <button id="downloadPdf" class="px-4 py-2 rounded accent-bg text-white">Արտահանել PDF</button>
+      </div>
 
-// print/PDF
-document.getElementById('printBtn').onclick=()=>window.print();
-document.getElementById('downloadPdf').onclick=()=>window.print();
-</script>
+    </section>
+  </main>
 
+  <footer class="bg-white border-t mt-8">
+    <div class="max-w-7xl mx-auto px-6 py-6 text-sm text-gray-600">© 2025 ՀՀ Հարկային Համակարգ — Ուղեցույց · Կրթական բնույթ • Պետք է անհատական վավերացում պաշտոնական աղբյուրների հետ</div>
+  </footer>
+
+  <script>
+    // Small UI enhancements: search, collapse, download
+    const toggleButtons = document.querySelectorAll('.toggleBtn');
+    toggleButtons.forEach(btn => {
+      btn.addEventListener('click', ()=>{
+        const content = btn.closest('article').querySelector('.content');
+        const isHidden = content.style.display === 'none';
+        content.style.display = isHidden ? '' : 'none';
+        btn.textContent = isHidden ? 'փակել' : 'Բացել';
+      });
+    });
+
+    // default collapse for all? keep open
+    // Search
+    const search = document.getElementById('search');
+    if (search) {
+      search.addEventListener('input', (e)=>{
+        const q = e.target.value.trim().toLowerCase();
+        document.querySelectorAll('article.card').forEach(a=>{
+          const text = a.innerText.toLowerCase();
+          a.style.display = q && !text.includes(q) ? 'none' : '';
+        });
+      });
+    }
+
+    // Print
+    document.getElementById('printBtn').addEventListener('click', ()=> window.print());
+
+    // Download HTML
+    document.getElementById('downloadBtn').addEventListener('click', ()=>{
+      const html = `<!doctype html>
+${document.documentElement.outerHTML}`;
+
+      const blob = new Blob([html], {type: 'text/html'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'tax_guide_armenia.html';
+      document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    });
+
+    // Mobile toggle (simple drawer)
+    document.getElementById('mobileToggle').addEventListener('click', ()=>{
+      const menu = document.querySelector('aside');
+      if (!menu) return alert('Մենյու բաց՝ մեծ էկրանին հասանելի է');
+      menu.classList.toggle('hidden');
+    });
+
+    // Download PDF (simple approach: print to PDF via print dialog)
+    document.getElementById('downloadPdf').addEventListener('click', ()=> window.print());
+
+    // Accessibility: focus outline
+    document.addEventListener('keydown', (e)=>{
+      if (e.key === 'Tab') document.body.classList.add('user-is-tabbing');
+    });
+  </script>
 </body>
 </html>
+
+this is final code bu the 3 lines arent working
