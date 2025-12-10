@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
   <style>
     :root{--accent:#0f766e;--muted:#6b7280}
     body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;}
@@ -30,14 +31,14 @@
       <div class="flex items-center gap-3">
         <input id="search" class="hidden md:block border rounded px-3 py-2 text-sm" placeholder="Որոնել բաժիններում..." aria-label="search" />
         <button id="printBtn" class="px-3 py-2 rounded border text-sm">Տպել / Պահել PDF</button>
-        <button id="mobileToggle" class="md:hidden px-3 py-2 rounded border">☰</button>
+        <button id="mobileToggle" aria-controls="siteToc" aria-expanded="false" class="md:hidden px-3 py-2 rounded border">☰</button>
       </div>
     </div>
   </header>
 
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid lg:grid-cols-4 gap-6">
     <!-- Sidebar / TOC -->
-    <aside class="lg:col-span-1 hidden lg:block sticky top-20 self-start">
+    <aside id="siteToc" class="lg:col-span-1 hidden lg:block sticky top-20 self-start mobile-drawer">
       <div class="card">
         <h2 class="font-semibold mb-3">Բովանդակություն</h2>
         <nav aria-label="Table of contents" class="space-y-2 text-sm">
@@ -186,6 +187,9 @@
     </section>
   </main>
 
+  <!-- Drawer overlay (mobile) -->
+  <div id="drawerOverlay" class="" aria-hidden="true"></div>
+
   <footer class="bg-white border-t mt-8">
     <div class="max-w-7xl mx-auto px-6 py-6 text-sm text-gray-600">© 2025 ՀՀ Հարկային Համակարգ — Ուղեցույց · Կրթական բնույթ • Պետք է անհատական վավերացում պաշտոնական աղբյուրների հետ</div>
   </footer>
@@ -231,18 +235,33 @@
       });
     }
 
-    // Mobile toggle (guarded)
+    // Mobile drawer toggle (guarded, with overlay)
     const mobileToggleBtn = document.getElementById('mobileToggle');
-    if (mobileToggleBtn) {
+    const siteToc = document.getElementById('siteToc');
+    const drawerOverlay = document.getElementById('drawerOverlay');
+    function openDrawer(){
+      if (!siteToc) return;
+      siteToc.classList.add('open');
+      drawerOverlay.classList.add('visible');
+      mobileToggleBtn.setAttribute('aria-expanded','true');
+      // prevent body scroll on mobile
+      document.body.style.overflow = 'hidden';
+    }
+    function closeDrawer(){
+      if (!siteToc) return;
+      siteToc.classList.remove('open');
+      drawerOverlay.classList.remove('visible');
+      mobileToggleBtn.setAttribute('aria-expanded','false');
+      document.body.style.overflow = '';
+    }
+    if (mobileToggleBtn){
       mobileToggleBtn.addEventListener('click', ()=>{
-        const menu = document.querySelector('aside');
-        if (!menu) return alert('Մենյու բաց՝ մեծ էկրանին հասանելի է');
-        menu.classList.toggle('hidden');
-        // improve accessibility state
-        const expanded = mobileToggleBtn.getAttribute('aria-expanded') === 'true';
-        mobileToggleBtn.setAttribute('aria-expanded', String(!expanded));
+        if (!siteToc) return alert('Մենյու բաց՝ մեծ էկրանին հասանելի է');
+        const isOpen = siteToc.classList.contains('open');
+        if (isOpen) closeDrawer(); else openDrawer();
       });
     }
+    if (drawerOverlay) drawerOverlay.addEventListener('click', closeDrawer);
 
     // Download PDF (simple approach: print to PDF via print dialog) - guarded
     const downloadPdfBtn = document.getElementById('downloadPdf');
