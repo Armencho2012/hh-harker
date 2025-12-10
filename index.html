@@ -31,13 +31,15 @@
       <div class="flex items-center gap-3">
         <input id="search" class="hidden md:block border rounded px-3 py-2 text-sm" placeholder="Որոնել բաժիններում..." aria-label="search" />
         <button id="printBtn" class="px-3 py-2 rounded border text-sm">Տպել / Պահել PDF</button>
-        <button id="mobileToggle" aria-controls="siteToc" aria-expanded="true" class="hidden px-3 py-2 rounded border" aria-hidden="true">☰</button>
+        <button id="mobileToggle" aria-controls="siteToc" aria-expanded="false" class="md:hidden px-3 py-2 rounded border">☰</button>
+
       </div>
     </div>
   </header>
 
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid lg:grid-cols-4 gap-6">
-    <aside id="siteToc" class="lg:col-span-1 sticky top-20 self-start">
+    <!-- Sidebar / TOC -->
+    <aside id="siteToc" class="lg:col-span-1 hidden lg:block sticky top-20 self-start mobile-drawer">
       <div class="card">
         <h2 class="font-semibold mb-3">Բովանդակություն</h2>
         <nav aria-label="Table of contents" class="space-y-2 text-sm">
@@ -186,7 +188,9 @@
     </section>
   </main>
 
-  <!-- Drawer overlay removed: TOC is visible at all sizes -->
+    <!-- Drawer overlay (mobile) -->
+  <div id="drawerOverlay" class="" aria-hidden="true"></div>
+
 
   <footer class="bg-white border-t mt-8">
     <div class="max-w-7xl mx-auto px-6 py-6 text-sm text-gray-600">© 2025 ՀՀ Հարկային Համակարգ — Ուղեցույց · Կրթական բնույթ • Պետք է անհատական վավերացում պաշտոնական աղբյուրների հետ</div>
