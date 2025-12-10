@@ -1,14 +1,57 @@
 :root{
-  --accent:#0f766e;
+  /* Primary creative palette */
+  --accent:#0f766e;            /* teal (existing) */
+  --accent-2:#7c3aed;         /* purple */
+  --accent-3:#ff6b6b;         /* coral */
+  --accent-4:#f59e0b;         /* amber */
   --muted:#6b7280;
-  --bg:#f8fafc;
-  --card-bg:#ffffff;
-  --card-border:rgba(15,118,110,0.06);
+
+  /* Background & surfaces */
+  --bg:#0f172a;               /* deep indigo-900 for a creative dark canvas */
+  --bg-soft:#0b1220;          /* slightly lighter */
+  --card-bg:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  --card-solid:#0b1220;       /* fallback solid */
+  --card-border:rgba(255,255,255,0.04);
+
+  /* gradients */
+  --grad-1:linear-gradient(135deg,var(--accent),var(--accent-2));
+  --grad-2:linear-gradient(135deg,var(--accent-3),#ffb86b);
+
+  /* contrast helpers */
+  --accent-contrast:#ffffff;
 }
 
-/* Basic tokens and small helpers to apply DESIGN.md decisions */
-body{background:var(--bg);color:#1f2937}
-.card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:1.25rem}
+/* Body / base */
+body{background:var(--bg);color:#e6eef6;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial}
+
+/* Card surfaces: subtle glass-like on dark bg */
+.card{background:var(--card-bg);background-color:var(--card-solid);border:1px solid var(--card-border);border-radius:14px;padding:1.25rem;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+
+/* Reading measure helper */
+.reading-width{max-width:65ch;margin-left:auto;margin-right:auto}
+
+/* Creative utilities */
+.accent-grad{background:var(--grad-1);color:var(--accent-contrast);padding:0.25rem 0.5rem;border-radius:8px}
+.accent-pulse{box-shadow:0 6px 24px rgba(124,58,237,0.12);transition:transform .18s ease}
+.accent-pulse:hover{transform:translateY(-3px)}
+
+/* Buttons */
+.btn-primary{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem .9rem;border-radius:10px;background:var(--grad-1);color:var(--accent-contrast);font-weight:600;border:0;box-shadow:0 6px 18px rgba(15,118,110,0.12);transition:transform .14s ease, box-shadow .14s ease}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(15,118,110,0.16)}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--accent-contrast);padding:.45rem .75rem;border-radius:8px}
+
+/* Links with animated underline */
+.link-animated{color:var(--accent-2);position:relative;text-decoration:none}
+.link-animated::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:2px;background:linear-gradient(90deg,var(--accent-3),var(--accent-4));transform:scaleX(0);transform-origin:left center;transition:transform .18s ease}
+.link-animated:hover::after{transform:scaleX(1)}
+
+/* TOC active indicator */
+.toc-item{transition:all .15s;display:block;padding:.25rem .125rem;border-radius:6px}
+.toc-item.active{background:linear-gradient(90deg,rgba(124,58,237,0.12),rgba(15,118,110,0.08));box-shadow:inset 4px 0 0 0 var(--accent-2);color:var(--accent-contrast)}
+
+/* Card accent stripe (for featured cards) */
+.card--accent{position:relative;overflow:visible}
+.card--accent::before{content:'';position:absolute;left:-1px;top:12px;height:calc(100% - 24px);width:6px;border-radius:6px;background:var(--grad-2);box-shadow:0 6px 22px rgba(255,107,107,0.08)}
 
 /* Drawer (mobile) behavior */
 aside#siteToc.mobile-drawer{
@@ -18,29 +61,27 @@ aside#siteToc.mobile-drawer{
   left:0;
   height:100vh;
   width:80%;
-  max-width:320px;
+  max-width:360px;
   transform:translateX(-110%);
   transition:transform .22s cubic-bezier(.2,.8,.2,1);
   z-index:60;
-  box-shadow:0 10px 30px rgba(2,6,23,0.08);
-  background:var(--card-bg);
-  border-right:1px solid var(--card-border);
+  box-shadow:0 16px 48px rgba(2,6,23,0.6);
+  background:linear-gradient(180deg, rgba(11,18,32,0.95), rgba(11,18,32,0.92));
+  border-right:1px solid rgba(255,255,255,0.03);
   padding:1rem;
 }
 aside#siteToc.mobile-drawer.open{transform:translateX(0)}
 
 /* overlay */
-#drawerOverlay{position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:50;opacity:0;visibility:hidden;transition:opacity .18s ease}
+#drawerOverlay{position:fixed;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.38),rgba(2,6,23,0.58));z-index:50;opacity:0;visibility:hidden;transition:opacity .18s ease}
 #drawerOverlay.visible{opacity:1;visibility:visible}
 
 /* On large screens, revert aside to normal flow */
 @media (min-width:1024px){
-  aside#siteToc.mobile-drawer{position:static;transform:none;width:auto;height:auto;box-shadow:none;border-right:0;padding:0}
+  aside#siteToc.mobile-drawer{position:static;transform:none;width:auto;height:auto;box-shadow:none;border-right:0;padding:0;background:transparent}
   #drawerOverlay{display:none}
 }
 
 /* Focus ring when keyboard navigation is used */
-.user-is-tabbing :focus{outline:3px solid rgba(15,118,110,0.18);outline-offset:2px;border-radius:6px}
+.user-is-tabbing :focus{outline:3px solid rgba(124,58,237,0.18);outline-offset:2px;border-radius:6px}
 
-/* Reading measure for main content */
-.reading-width{max-width:65ch;margin-left:auto;margin-right:auto}
