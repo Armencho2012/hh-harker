@@ -21,14 +21,14 @@
     <div class="flex items-center gap-3">
       <input id="search" class="hidden md:block border rounded px-3 py-2 text-sm bg-gray-800 border-gray-700 text-white" placeholder="Որոնել բաժիններում..." aria-label="search" />
       <button id="printBtn" class="px-3 py-2 rounded btn-ghost text-sm">Տպել / Պահել PDF</button>
-      <button id="mobileToggle" aria-controls="siteToc" aria-expanded="false" class="md:hidden px-3 py-2 rounded btn-ghost">☰</button>
+      <button id="mobileToggle" aria-controls="siteToc" aria-expanded="false" class="px-3 py-2 rounded btn-ghost">☰</button>
 
     </div>
   </div>
  </header>
 
  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid lg:grid-cols-4 gap-6">
-      <aside id="siteToc" class="lg:col-span-1 hidden lg:block sticky top-20 self-start mobile-drawer">
+      <aside id="siteToc" class="drawer lg:col-span-1 sticky top-20 self-start">
     <div class="card">
       <h2 class="font-semibold mb-3 text-white">Բովանդակություն</h2>
       <nav aria-label="Table of contents" class="space-y-2 text-sm">
@@ -46,6 +46,7 @@
       <p class="text-xs text-gray-500">Նշում. տվյալ կայքը ուսուցողական է. պաշտոնական հաշվարկների համար դիմեք օրենսդրությանը կամ մասնագետին:</p>
     </div>
   </aside>
+  <div id="drawerOverlay"></div>
 
       <section class="lg:col-span-3 space-y-6">
         <div class="card">
@@ -244,5 +245,28 @@
   </article>
       </section>
     </main>
+    <script>
+      document.getElementById('mobileToggle').addEventListener('click', function() {
+        const toc = document.getElementById('siteToc');
+        const overlay = document.getElementById('drawerOverlay');
+        toc.classList.toggle('open');
+        if (window.innerWidth < 1024) {
+          overlay.classList.toggle('visible');
+        }
+      });
+
+      document.querySelectorAll('.toc-item').forEach(link => {
+        link.addEventListener('click', () => {
+          const toc = document.getElementById('siteToc');
+          const overlay = document.getElementById('drawerOverlay');
+          toc.classList.remove('open');
+          overlay.classList.remove('visible');
+        });
+      });
+
+      document.getElementById('printBtn').addEventListener('click', function() {
+        window.print();
+      });
+    </script>
   </body>
 </html>
