@@ -3,286 +3,246 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ՀՀ Հարկային Համակարգ — Ուղեցույց</title>
+  <title>ՀՀ Հարկային Համակարգ — Ուղեցույց (Մուգ Թեմա)</title>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="styles.css">
-  <style>
-    :root{--accent:#0f766e;--muted:#6b7280}
-    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;}
-    .accent{color:var(--accent)}
-    .accent-bg{background-color:var(--accent)}
-    .card{background:#fff;border:1px solid rgba(15,118,110,0.06);border-radius:12px;padding:1.25rem}
-    .toc-item{transition:all .15s}
-    .toc-item:hover{transform:translateX(4px)}
-  </style>
 </head>
-<body class="antialiased bg-gray-50 text-gray-800">
-  <!-- Header -->
-  <header class="bg-white shadow sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
-      <div class="flex items-center gap-4">
-        <div>
-          <h1 class="text-lg font-semibold">ՀՀ Հարկային Համակարգ — Ուղեցույց</h1>
-          <p class="text-sm text-gray-500">Պրոֆեսիոնալ կրթական ռեսուրս՝ պարզ կառուցվածքով</p>
-        </div>
-      </div>
-      <div class="flex items-center gap-3">
-        <input id="search" class="hidden md:block border rounded px-3 py-2 text-sm" placeholder="Որոնել բաժիններում..." aria-label="search" />
-        <button id="printBtn" class="px-3 py-2 rounded border text-sm">Տպել / Պահել PDF</button>
-        <button id="mobileToggle" aria-controls="siteToc" aria-expanded="false" class="md:hidden px-3 py-2 rounded border">☰</button>
-
+<body class="antialiased">
+  <header class="bg-gray-900 shadow sticky top-0 z-50 border-b border-gray-700">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
+    <div class="flex items-center gap-4">
+      <div>
+        <h1 class="text-lg font-semibold text-white">ՀՀ Հարկային Համակարգ — Ուղեցույց</h1>
+        <p class="text-sm text-gray-400">Պրոֆեսիոնալ կրթական ռեսուրս՝ պարզ կառուցվածքով</p>
       </div>
     </div>
-  </header>
+    <div class="flex items-center gap-3">
+      <input id="search" class="hidden md:block border rounded px-3 py-2 text-sm bg-gray-800 border-gray-700 text-white" placeholder="Որոնել բաժիններում..." aria-label="search" />
+      <button id="printBtn" class="px-3 py-2 rounded btn-ghost text-sm">Տպել / Պահել PDF</button>
+      <button id="mobileToggle" aria-controls="siteToc" aria-expanded="false" class="md:hidden px-3 py-2 rounded btn-ghost">☰</button>
 
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid lg:grid-cols-4 gap-6">
-    <!-- Sidebar / TOC -->
-    <aside id="siteToc" class="lg:col-span-1 hidden lg:block sticky top-20 self-start mobile-drawer">
-      <div class="card">
-        <h2 class="font-semibold mb-3">Բովանդակություն</h2>
-        <nav aria-label="Table of contents" class="space-y-2 text-sm">
-          <a class="block toc-item text-accent hover:underline" href="#excise">Ակցիզային հարկ</a>
-          <a class="block toc-item text-accent hover:underline" href="#environment">Բնապահպանական հարկ</a>
-          <a class="block toc-item text-accent hover:underline" href="#marks">Արտադրանք՝ դրոշմանիշեր</a>
-          <a class="block toc-item text-accent hover:underline" href="#fee">Պետական տուրք</a>
-          <a class="block toc-item text-accent hover:underline" href="#property">Գույքային հարկեր</a>
-          <a class="block toc-item text-accent hover:underline" href="#turnover">Շրջանառության հարկ</a>
-          <a class="block toc-item text-accent hover:underline" href="#social">Սոցիալական վճար</a>
-        </nav>
-        <hr class="my-3" />
-        <p class="text-xs text-gray-500">Նշում. տվյալ կայքը ուսուցողական է. պաշտոնական հաշվարկների համար դիմեք օրենսդրությանը կամ մասնագետին:</p>
+    </div>
+  </div>
+ </header>
+
+ <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid lg:grid-cols-4 gap-6">
+      <aside id="siteToc" class="lg:col-span-1 hidden lg:block sticky top-20 self-start mobile-drawer">
+    <div class="card">
+      <h2 class="font-semibold mb-3 text-white">Բովանդակություն</h2>
+      <nav aria-label="Table of contents" class="space-y-2 text-sm">
+        <a class="block toc-item accent" href="#systems">Հարկային համակարգեր</a>
+        <a class="block toc-item accent-2" href="#main-taxes">Հիմնական հարկատեսակներ</a>
+        <a class="block toc-item accent-3" href="#excise">Ակցիզային հարկ</a>
+        <a class="block toc-item accent-5" href="#environment">Բնապահպանական հարկ</a>
+        <a class="block toc-item accent-6" href="#marks">Արտադրանք՝ դրոշմանիշեր</a>
+        <a class="block toc-item accent-7" href="#fee">Պետական տուրք</a>
+        <a class="block toc-item accent-8" href="#property">Գույքային հարկեր</a>
+        <a class="block toc-item accent-9" href="#turnover">Շրջանառության հարկ</a>
+        <a class="block toc-item accent-10" href="#social">Սոցիալական վճար</a>
+      </nav>
+      <hr class="my-3 border-gray-700" />
+      <p class="text-xs text-gray-500">Նշում. տվյալ կայքը ուսուցողական է. պաշտոնական հաշվարկների համար դիմեք օրենսդրությանը կամ մասնագետին:</p>
+    </div>
+  </aside>
+
+      <section class="lg:col-span-3 space-y-6">
+        <div class="card">
+    <div class="flex items-start justify-between gap-4">
+      <div>
+        <h2 class="text-2xl font-bold text-white">Հետաքրքրասեր արագ մուտք</h2>
+        <p class="mt-2 text-gray-300">Այս էջը ամբողջական կերպով ներկայացնում է Հայաստանի Հանրապետության հարկային համակարգի կարևոր բաժինները՝ պարզ, ընթեռնելի և օգտագործելի կրթական նպատակներով, մուգ և ժամանակակից դիզայնով։</p>
+        <p class="mt-3 text-sm text-gray-500">(Իրատեսական օրինակազմ՝ ներառում է ակցիզային հարկ, բնապահպանական հարկ, պետական տուրք, գույքային հարկեր, շրջանառության հարկ և սոցիալական վճար)</p>
       </div>
-    </aside>
+    </div>
+  </div>
+  <article id="systems" class="card" data-title="Հարկային համակարգեր">
+    <header class="flex items-center justify-between">
+      <h3 class="text-xl font-semibold"><span class="accent-grad">Հարկային Համակարգեր Հայաստանում</span></h3>
+      <button class="toggleBtn btn-ghost text-sm px-2 py-1 rounded border">փակել</button>
+    </header>
+    <div class="mt-3 content">
+      <p class="text-gray-300">Հայաստանում կիրառվում է հարկային երկու հիմնական համակարգ՝ ֆիզիկական և իրավաբանական անձանց համար հարկման պարզեցված և ընդհանուր ռեժիմներով:</p>
+      <h4 class="font-bold mt-4 mb-2 text-lg text-accent">Ընդհանուր Հարկային Համակարգ</h4>
+      <p class="text-gray-300">Սա ստանդարտ ռեժիմն է, որը կիրառվում է այն ֆիզիկական և իրավաբանական անձանց նկատմամբ, որոնք չեն ընտրել կամ չեն բավարարում հատուկ համակարգերի պահանջները։ Այն ներառում է հարկման հիմնական տեսակները՝ Ավելացված Արժեքի Հարկ (ԱԱՀ) և Շահութահարկ։</p>
+      <ul class="list-disc list-inside text-gray-300 mt-2">
+        <li><strong>Հարկման Տեսակները.</strong> Ավելացված Արժեքի Հարկ (ԱԱՀ) և Շահութահարկ։</li>
+        <li><strong>Կիրառում.</strong> Այս համակարգը վերաբերում է խոշոր կազմակերպություններին և նրանց, ովքեր չեն բավարարում կամ իրավունք չունեն կիրառելու հատուկ ռեժիմներ։</li>
+      </ul>
+      <h4 class="font-bold mt-4 mb-2 text-lg text-accent">Հատուկ Հարկային Համակարգեր</h4>
+      <p class="text-gray-300">Այս համակարգերը նախատեսված են հիմնականում փոքր և միջին բիզնեսի (ՓՄՁ) համար՝ հարկային բեռը պարզեցնելու և թեթևացնելու նպատակով։</p>
+      <ul class="list-disc list-inside text-gray-300 mt-2">
+        <li><strong>Շրջանառության Հարկ.</strong> Սա փոխարինում է ԱԱՀ-ին և/կամ շահութահարկին մինչև 115 միլիոն դրամ շրջանառություն ունեցող սուբյեկտների համար։</li>
+        <li><strong>Միկրոձեռնարկատիրություն.</strong> Այս ռեժիմը հարկերից ազատում է որոշակի գործունեություն իրականացնող ֆիզիկական անձանց՝ նպատակ ունենալով խթանել ինքնազբաղվածությունը։</li>
+      </ul>
+    </div>
+  </article>
 
-    <!-- Content -->
-    <section class="lg:col-span-3 space-y-6">
-      <!-- Hero / Summary card -->
-      <div class="card">
-        <div class="flex items-start justify-between gap-4">
-          <div>
-            <h2 class="text-2xl font-bold">Հետաքրքրասեր արագ մուտք</h2>
-            <p class="mt-2 text-gray-700">Այս էջը ամբողջական ու կառուցվածքային կերպով ներկայացնում է Հայաստանի Հանրապետության հարկային համակարգի կարևոր բաժինները՝ պարզ, ընթեռնելի և օգտագործելի կրթական նպատակներով։</p>
-            <p class="mt-3 text-sm text-gray-500">(Իրատեսական օրինակազմ՝ ներառում է ակցիզային հարկ, բնապահպանական հարկ, պետական տուրք, գույքային հարկեր, շրջանառության հարկ և սոցիալական վճար)</p>
-          </div>
-        </div>
-      </div>
+  <article id="main-taxes" class="card" data-title="Հիմնական հարկատեսակներ">
+    <header class="flex items-center justify-between">
+      <h3 class="text-xl font-semibold"><span class="accent-grad-2">Հիմնական Հարկատեսակների Մանրամասներ</span></h3>
+      <button class="toggleBtn btn-ghost text-sm px-2 py-1 rounded border">փակել</button>
+    </header>
+    <div class="mt-3 content">
+      <h4 class="font-bold mt-4 mb-2 text-lg text-accent">Ավելացված Արժեքի Հարկ (ԱԱՀ)</h4>
+      <p class="text-gray-300">ԱԱՀ-ն անուղղակի հարկ է, որը գանձվում է ապրանքների/ծառայությունների իրացումից և ներմուծումից։</p>
+      <ul class="list-disc list-inside text-gray-300 mt-2">
+        <li><strong>Բնույթը.</strong> Անուղղակի հարկ, որը գանձվում է ապրանքների/ծառայությունների իրացումից և ներմուծումից։</li>
+        <li><strong>Հաշվարկը.</strong> Վճարվում է ելքային (վաճառքի) և մուտքային (գնման) ԱԱՀ-ների տարբերությամբ։</li>
+        <li><strong>Շեմը.</strong> Հարկատուները պարտավոր են գրանցվել որպես ԱԱՀ վճարող, եթե իրենց գործարքների ծավալը գերազանցում է <strong>115 միլիոն դրամը</strong>։</li>
+        <li><strong>Հիմնական Դրույքաչափը.</strong> <strong>20%</strong>։</li>
+        <li><strong>Վճարման Ժամկետ.</strong> Ամսական՝ մինչև հաջորդ ամսվա <strong>20-ը</strong>։</li>
+      </ul>
+      <h4 class="font-bold mt-4 mb-2 text-lg text-accent">Շահութահարկ</h4>
+      <p class="text-gray-300">Շահութահարկը պետական հարկ է, որը հիմնականում վճարում են ռեզիդենտ կազմակերպությունները, ԱՁ-ները, մասնաճյուղերը և ոչ ռեզիդենտները՝ ՀՀ-ում գործունեություն ծավալելիս։</p>
+      <ul class="list-disc list-inside text-gray-300 mt-2">
+        <li><strong>Դրույքաչափ.</strong> <strong>18%</strong>։</li>
+        <li><strong>Վճարողներ.</strong> Տեղական հայկական ընկերություններ, արտասահմանյան կորպորացիաներ (որոնք ֆիզիկապես ներկայություն ունեն Հայաստանում) և բոլոր կազմակերպությունները, որոնք հարկատուն շահույթ են ստանում երկրի ներսում։</li>
+      </ul>
+      <h4 class="font-bold mt-4 mb-2 text-lg text-accent">Եկամտային Հարկ</h4>
+      <p class="text-gray-300">Եկամտային հարկը կիրառվում է ֆիզիկական անձանց եկամուտների նկատմամբ։</p>
+      <ul class="list-disc list-inside text-gray-300 mt-2">
+        <li><strong>Ընդհանուր Հարկային Համակարգ.</strong> Ստանդարտ հարկման ռեժիմ է ֆիզիկական անձանց եկամուտների համար։</li>
+        <li><strong>Հատուկ Հարկային Համակարգեր.</strong> Առանձին դեպքերի համար կիրառվում են հատուկ դրույքաչափեր և կանոններ (օրինակ՝ շահաբաժիններ, վարձակալություն)։</li>
+      </ul>
+    </div>
+  </article>
+        <article id="excise" class="card card--accent" data-title="Ակցիզային հարկ">
+    <header class="flex items-center justify-between">
+      <h3 class="text-xl font-semibold"><span class="accent-grad-3">Ակցիզային հարկ (ԱՀ) — Խորացված Վերլուծություն</span></h3>
+      <button class="toggleBtn btn-ghost text-sm px-2 py-1 rounded border">փակել</button>
+    </header>
+    <div class="mt-3 content">
+      <p class="text-gray-300">Ակցիզային հարկի հաշվարկման կարգը և դրույքաչափերը բարդ են և կախված են ԱՏԳԱԱ (Արտաքին Տնտեսական Գործունեության Ապրանքային Անվանացանկ) ծածկագրերից և ֆիզիկական չափման միավորներից (լիտր, հատ, կիլոգրամ):</p>
+      
+      <h4 class="font-bold mt-4 mb-2 text-lg text-accent">Հարկման Օբյեկտները և Դրույքաչափերը (Ամփոփում)</h4>
+      <p class="text-gray-300">Ակցիզային հարկը ընտրովի հարկ է, որը գանձվում է որոշակի ապրանքների և ծառայությունների նկատմամբ՝ սպառումը սահմանափակելու և պետական եկամուտներն ավելացնելու նպատակով։</p>
+      <ul class="list-disc list-inside text-gray-300 mt-2">
+        <li><strong>Կիրառվող Ապրանքներ.</strong> Ալկոհոլային խմբեր, ծխախոտ, բենզին, վառելիք և այլ ակցիզային ապրանքներ։</li>
+        <li><strong>Դրույքաչափեր.</strong> Սահմանվում են ՀՀ հարկային օրենսգրքով և տարբերվում են ըստ ապրանքի տեսակի (ֆիքսված կամ տոկոսային)։</li>
+      </ul>
+    </div>
+  </article>
 
-      <!-- Sections: each with collapsible summary + details for readability -->
+  <article id="environment" class="card card--accent-2" data-title="Բնապահպանական հարկ">
+    <header class="flex items-center justify-between">
+      <h3 class="text-xl font-semibold"><span class="accent-grad-4">Բնապահպանական Հարկ</span></h3>
+      <button class="toggleBtn btn-ghost text-sm px-2 py-1 rounded border">փակել</button>
+    </header>
+    <div class="mt-3 content">
+      <p class="text-gray-300">Գանձվում է մթնոլորտային օդի վնասակար արտանետումների, ջրային աղբաջրերի արտահոսքի, թափոնների տեղադրման և որոշ ապրանքների ներմուծման համար։</p>
+      <h4 class="font-bold mt-4 mb-2 text-lg text-accent">Ավտոմեքենաների Դրույքաչափեր</h4>
+      <p class="text-gray-300">Որոշվում են ըստ տարիքի և շարժիչի հզորության (ձիաուժ - ձ/ու)։</p>
+      <ul class="list-disc list-inside text-gray-300 mt-2">
+        <li>Մինչև 50 ձ/ու (հին մեքենաների համար)՝ <strong>5 դրամ/ձ/ու</strong>։</li>
+        <li>301+ ձ/ու (հին մեքենաների համար)՝ <strong>50 դրամ/ձ/ու</strong>։</li>
+      </ul>
+      <h4 class="font-bold mt-4 mb-2 text-lg text-accent">Թափոնների Տեղադրում</h4>
+      <p class="text-gray-300">Կախված թափոնի տեսակից, գանձումը տատանվում է <strong>60-ից մինչև 48,000 դրամ</strong> յուրաքանչյուր կոնկրետ տեսակի և քանակի համար։</p>
+      <p class="text-gray-300 mt-2"><strong>Հաշվետու Ժամանակաշրջան.</strong> Հիմնականում եռամսյակային, վճարվում է մինչև հաջորդ ամսվա <strong>20-ը</strong>։</p>
+      <p class="text-gray-300 mt-2"><strong>Արտոնություններ.</strong> Հարկային արտոնություններ կան հիբրիդային և էլեկտրական տրանսպորտային միջոցների, ինչպես նաև վերականգնվող էներգիայի օգտագործման դեպքում։</p>
+    </div>
+  </article>
 
-      <article id="excise" class="card" data-title="Ակցիզային հարկ">
-        <header class="flex items-center justify-between">
-          <h3 class="text-xl font-semibold">Ակցիզային հարկ</h3>
-          <button class="toggleBtn text-sm px-2 py-1 rounded border">փակել</button>
-        </header>
-        <div class="mt-3 content">
-          <p class="text-gray-700">Ակցիզային հարկի գծով հարկման բազան և դրույքաչափերը սահմանվում են օրենսգրքով։ Ակցիզային հարկից ազատումներ՝ արտահանում, ԵԱՏՄ անդամ պետություն արտահանում և այլն:</p>
-          <ul class="mt-3 list-disc pl-5 text-gray-700">
-            <li>Հաշվետու ժամկետներ — մինչև հաշվետու ամսվան հաջորդող ամսվա 20-ը (բացառություններ՝ ներմուծողները):</li>
-            <li>Ժամկետանց տույժ — 0.04% յուրաքանչյուր օր:</li>
-            <li>Ուշ ներկայացման տուգանք — հաշվարկված հարկի 5%:</li>
-          </ul>
-        </div>
-      </article>
+  <article id="property" class="card card--accent-4" data-title="Գույքային հարկեր">
+    <header class="flex items-center justify-between">
+      <h3 class="text-xl font-semibold"><span class="accent-grad">Գույքային Հարկեր</span></h3>
+      <button class="toggleBtn btn-ghost text-sm px-2 py-1 rounded border">փակել</button>
+    </header>
+    <div class="mt-3 content">
+      <h4 class="font-bold mt-4 mb-2 text-lg text-accent">Անշարժ Գույքի Հարկ</h4>
+      <p class="text-gray-300">Գանձվում է գույքատերերից և ուղղվում է տեղական (համայնքային) բյուջե։</p>
+      <ul class="list-disc list-inside text-gray-300 mt-2">
+        <li>Գյուղատնտեսական նշանակության հողեր՝ <strong>15%</strong>։</li>
+        <li>Հողամասերի հարկումը կատարվում է <strong>կադաստրային արժեքով</strong>։</li>
+        <li>Բնակելի կառուցապատման հողերի համար դրույքաչափերը տատանվում են <strong>0.25%-ից մինչև 1%</strong> (կախված գույքի արժեքից)։</li>
+        <li>Արտադրական նշանակության շենքերի համար՝ <strong>0.5%</strong>։</li>
+      </ul>
+      <h4 class="font-bold mt-4 mb-2 text-lg text-accent">Փոխադրամիջոցների Գույքահարկ</h4>
+      <p class="text-gray-300">Գանձվում է մեքենաների սեփականատերերից և հաշվարկվում է ըստ շարժիչի հզորության։</p>
+      <ul class="list-disc list-inside text-gray-300 mt-2">
+        <li><strong>Հարկման Հիմք.</strong> Մեխանիկական տրանսպորտային միջոցներ (բացառությամբ պետական մարմինների մեքենաների)։</li>
+        <li><strong>Պատասխանատվություն.</strong> Ընդհանուր դեպքերում պատասխանատվությունը կրում է սեփականատերը կամ համատեղ սեփականատերը։</li>
+      </ul>
+      <h4 class="font-bold mt-4 mb-2 text-lg text-accent">Ճանապարհային Հարկ</h4>
+      <p class="text-gray-300">Պետական հարկ է, որը գանձվում է ՀՀ ճանապարհների զարգացման և պահպանման համար։</p>
+      <ul class="list-disc list-inside text-gray-300 mt-2">
+        <li><strong>Հարկման Օբյեկտներ.</strong> Հայաստան մուտք գործող և ՀՀ-ում գրանցված չլինող տրանսպորտային միջոցներով ճանապարհներից օգտվելը, ինչպես նաև պետական ճանապարհներին գովազդ տեղադրելը։</li>
+        <li><strong>Հաշվարկման Կարգը.</strong> Ներմուծվող բեռնատարների համար գանձվում է 15 օրվա դիմաց՝ ըստ առավելագույն թույլատրելի զանգվածի։</li>
+      </ul>
+    </div>
+  </article>
 
-      <article id="environment" class="card" data-title="Բնապահպանական հարկ">
-        <header class="flex items-center justify-between">
-          <h3 class="text-xl font-semibold">Բնապահպանական հարկ</h3>
-          <button class="toggleBtn text-sm px-2 py-1 rounded border">փակել</button>
-        </header>
-        <div class="mt-3 content">
-          <p class="text-gray-700">Գանձվում է մթնոլորտային օդի վնասակար արտանետման, ջրային աղբաջրի արտահոսքի, թափոնների տեղադրման և որոշ ապրանքների ներմուծման համար։</p>
-          <p class="mt-2 text-gray-700">Օրինակ՝ ավտոմեքենաների համար դրույքաչափեր ըստ արտադրության տարվա և ձիաուժի:</p>
-          <ul class="mt-2 list-disc pl-5 text-gray-700">
-            <li>8-րդ և հաջորդող տարիների համար՝ մինչև 50 ձ/ուժ — 5 դրամ; 301+ ձ/ուժ — 50 դրամ/ձիաուժ:</li>
-            <li>Թափոնների տեղադրման դրույքաչափ՝ 60 — 48,000 դրամ (դավդ. կախված դասից):</li>
-            <li>Հաշվետու ժամանակաշրջան — հիմնականում եռամսյակ; վճարում մինչև հաջորդ ամսվա 20-ը:</li>
-            <li>Արտոնություններ՝ հիբրիդ/էլեկտր. տրանսպորտ եւ հաշմանդամների օգտագործած մեքենաներ:</li>
-          </ul>
-        </div>
-      </article>
+  <article id="turnover" class="card card--accent-5" data-title="Շրջանառության հարկ">
+    <header class="flex items-center justify-between">
+      <h3 class="text-xl font-semibold"><span class="accent-grad-2">Շրջանառության Հարկ</span></h3>
+      <button class="toggleBtn btn-ghost text-sm px-2 py-1 rounded border">փակել</button>
+    </header>
+    <div class="mt-3 content">
+      <p class="text-gray-300">Սա հատուկ ռեժիմ է, որը փոխարինում է ԱԱՀ-ին կամ շահութահարկին մինչև 115 միլիոն դրամ շրջանառություն ունեցող սուբյեկտների համար։</p>
+      <table class="w-full mt-4 border-collapse border border-gray-600 text-gray-300">
+        <thead>
+          <tr class="bg-gray-700">
+            <th class="border border-gray-600 px-4 py-2 text-left">Գործունեության Տեսակը</th>
+            <th class="border border-gray-600 px-4 py-2 text-left">Դրույքաչափը</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border border-gray-600 px-4 py-2">Առևտուր/Վաճառք</td>
+            <td class="border border-gray-600 px-4 py-2">5% (կարող է նվազել մինչև 1.5%)</td>
+          </tr>
+          <tr class="bg-gray-800">
+            <td class="border border-gray-600 px-4 py-2">Արտադրություն</td>
+            <td class="border border-gray-600 px-4 py-2">3.5%</td>
+          </tr>
+          <tr>
+            <td class="border border-gray-600 px-4 py-2">Վարձակալություն</td>
+            <td class="border border-gray-600 px-4 py-2">10%</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="text-gray-300 mt-4"><strong>Հաշվետու Ժամանակաշրջան.</strong> Եռամսյակային, վճարվում է մինչև հաջորդ ամսվա <strong>20-ը</strong>։</p>
+    </div>
+  </article>
 
-      <article id="marks" class="card" data-title="Դրոշմանիշեր">
-        <header class="flex items-center justify-between">
-          <h3 class="text-xl font-semibold">Ակցիզային դրոշմանիշեր և դրոշմապիտակներ</h3>
-          <button class="toggleBtn text-sm px-2 py-1 rounded border">փակել</button>
-        </header>
-        <div class="mt-3 content">
-          <p class="text-gray-700">Արտադրանքները՝ ըստ ԱՏԳԱԱ աղյուսակի (2204-2208, 2402) ենթակա են դրոշմավորման: պարտավոր են ներմուծողներն ու տեղական արտադրողները:</p>
-          <ul class="mt-2 list-disc pl-5 text-gray-700">
-            <li>Չօգտագործված դրոշմանիշերը վերադարձվում են վեց ամսվա ընթացքում:</li>
-            <li>Վնասված դրոշմանիշներն հաշվառվում են յուրաքանչյուր կիսամյակի արդյունքներով մինչև հաջորդ ամսվա 20-ը:</li>
-            <li>Խախտումները կարող են հանգեցնել վարչական/քրեական պատասխանատվության:</li>
-          </ul>
-        </div>
-      </article>
+  <article id="marks" class="card" data-title="Արտադրանք՝ դրոշմանիշեր">
+    <header class="flex items-center justify-between">
+      <h3 class="text-xl font-semibold"><span class="accent-grad-5">Արտադրանք՝ Դրոշմանիշեր</span></h3>
+      <button class="toggleBtn btn-ghost text-sm px-2 py-1 rounded border">փակել</button>
+    </header>
+    <div class="mt-3 content">
+      <p class="text-gray-300">Այս բաժինը ներառում է դրոշմանիշերի և ապրանքային նշանների հետ կապված հարկային կանոնները Հայաստանում։</p>
+      <p class="text-gray-300 mt-2">Մանրամասների համար դիմեք ՀՀ հարկային օրենսգրքին կամ մասնագետին։</p>
+    </div>
+  </article>
 
-      <article id="fee" class="card" data-title="Պետական տուրք">
-        <header class="flex items-center justify-between">
-          <h3 class="text-xl font-semibold">Պետական տուրք</h3>
-          <button class="toggleBtn text-sm px-2 py-1 rounded border">փակել</button>
-        </header>
-        <div class="mt-3 content">
-          <p class="text-gray-700">Պետական տուրքը գանձվում է պետական ծառայություններից օգտվելու համար (օր.՝ դատական, նոտարական, լիցենզիաներ):</p>
-          <ul class="mt-2 list-disc pl-5 text-gray-700">
-            <li>Վճարումը մինչև ծառայության մատուցումը:</li>
-            <li>Ժամկետանց տույժ՝ 0.15% օրական:</li>
-            <li>Ավել վճարված գումարը վերադարձնում են մինչև 3 տարվա ընթացքում:</li>
-          </ul>
-        </div>
-      </article>
+  <article id="fee" class="card card--accent-3" data-title="Պետական տուրք">
+    <header class="flex items-center justify-between">
+      <h3 class="text-xl font-semibold"><span class="accent-grad-6">Պետական Տուրք</span></h3>
+      <button class="toggleBtn btn-ghost text-sm px-2 py-1 rounded border">փակել</button>
+    </header>
+    <div class="mt-3 content">
+      <p class="text-gray-300">Հարկ է, որը գանձվում է պետական և համայնքային ծառայություններ իրականացնելու ծախսերը ֆինանսավորելու համար։</p>
+      <ul class="list-disc list-inside text-gray-300 mt-2">
+        <li><strong>Նպատակ և Ֆունկցիա.</strong> Պետության եկամուտների գլխավոր աղբյուրներից է, որը նախատեսված է պետական և համայնքային ապարատի գործառույթների իրականացման ծախսերը ֆինանսավորելու համար։</li>
+        <li><strong>Գանձման Օբյեկտներ.</strong> Գանձվում է ֆիզիկական և իրավաբանական անձանցից և տեղական ինքնակառավարման մարմիններից՝ հարկային օրենսդրությամբ նախատեսված կարգով, չափերով և ժամկետներում։</li>
+      </ul>
+    </div>
+  </article>
 
-      <article id="property" class="card" data-title="Գույքային հարկեր">
-        <header class="flex items-center justify-between">
-          <h3 class="text-xl font-semibold">Գույքային հարկեր</h3>
-          <button class="toggleBtn text-sm px-2 py-1 rounded border">փակել</button>
-        </header>
-        <div class="mt-3 content">
-          <p class="text-gray-700">Անշարժ գույքի և փոխադրամիջոցների գույքահարկերը մուտքագրվում են տեղական (համայնքային) բյուջե.</p>
-          <ul class="mt-2 list-disc pl-5 text-gray-700">
-            <li>Անշարժ գույք — հարկման բազան՝ կադաստրային արժեքը:</li>
-            <li>Փոխադրամիջոցներ — հիմք՝ շարժիչի հզորությունը:</li>
-            <li>Վճարման վերջնաժամկետ՝ դեկտեմբերի 1-ը:</li>
-            <li>Ճանապարհային հարկ՝ չգրանցված բեռնատարների մուտքի և պետական ճանապարհների գովազդի համար:</li>
-          </ul>
-        </div>
-      </article>
-
-      <article id="turnover" class="card" data-title="Շրջանառության հարկ">
-        <header class="flex items-center justify-between">
-          <h3 class="text-xl font-semibold">Շրջանառության հարկ</h3>
-          <button class="toggleBtn text-sm px-2 py-1 rounded border">փակել</button>
-        </header>
-        <div class="mt-3 content">
-          <p class="text-gray-700">Հատուկ ռեժիմ՝ փոխարինում է ԱԱՀ-ին և/կամ շահութահարկին՝ մինչև 115 մլն դրամ շրջանառություն ունեցող սուբյեկտների համար:</p>
-          <ul class="mt-2 list-disc pl-5 text-gray-700">
-            <li>Առք/վաճառք — 5% (կարող է նվազել մինչև 1.5%):</li>
-            <li>Արտադրություն — 3.5%:</li>
-            <li>Վարձակալություն — 10%:</li>
-            <li>Հաշվետու ժամանակաշրջան — եռամսյակ; վճարում՝ մինչև հաջորդ ամսվա 20-ը:</li>
-          </ul>
-        </div>
-      </article>
-
-      <article id="social" class="card" data-title="Սոցիալական վճար">
-        <header class="flex items-center justify-between">
-          <h3 class="text-xl font-semibold">Սոցիալական վճար</h3>
-          <button class="toggleBtn text-sm px-2 py-1 rounded border">փակել</button>
-        </header>
-        <div class="mt-3 content">
-          <p class="text-gray-700">Կուտակային կենսաթոշակային համակարգի համար հաշվարկվող վճար:</p>
-          <ul class="mt-2 list-disc pl-5 text-gray-700">
-            <li>5%՝ մինչև 500,000 դրամ եկամտի համար:</li>
-            <li>10%՝ բարձր եկամուտների համար (հանած 25,000 դրամը):</li>
-            <li>ԱՁ-երի համար, որ վճարում են շրջանառության հարկ — ամսեկան ֆիքսված 5,000 դրամ:</li>
-          </ul>
-        </div>
-      </article>
-
-      <!-- Actions -->
-      <div class="flex gap-3">
-        <button id="downloadPdf" class="px-4 py-2 rounded accent-bg text-white">Արտահանել PDF</button>
-      </div>
-
-    </section>
-  </main>
-
-    <!-- Drawer overlay (mobile) -->
-  <div id="drawerOverlay" class="" aria-hidden="true"></div>
-
-
-  <footer class="bg-white border-t mt-8">
-    <div class="max-w-7xl mx-auto px-6 py-6 text-sm text-gray-600">© 2025 ՀՀ Հարկային Համակարգ — Ուղեցույց · Կրթական բնույթ • Պետք է անհատական վավերացում պաշտոնական աղբյուրների հետ</div>
-  </footer>
-
-  <script>
-    // Small UI enhancements: search, collapse, download
-    const toggleButtons = document.querySelectorAll('.toggleBtn');
-    toggleButtons.forEach(btn => {
-      btn.addEventListener('click', ()=>{
-        const content = btn.closest('article').querySelector('.content');
-        const isHidden = content.style.display === 'none';
-        content.style.display = isHidden ? '' : 'none';
-        btn.textContent = isHidden ? 'փակել' : 'Բացել';
-      });
-    });
-
-    // Search
-    const search = document.getElementById('search');
-    if (search) {
-      search.addEventListener('input', (e)=>{
-        const q = e.target.value.trim().toLowerCase();
-        document.querySelectorAll('article.card').forEach(a=>{
-          const text = a.innerText.toLowerCase();
-          a.style.display = q && !text.includes(q) ? 'none' : '';
-        });
-      });
-    }
-
-    // Print (guarded)
-    const printBtn = document.getElementById('printBtn');
-    if (printBtn) printBtn.addEventListener('click', ()=> window.print());
-
-    // Download HTML (guarded - element may be absent)
-    const downloadBtn = document.getElementById('downloadBtn');
-    if (downloadBtn) {
-      downloadBtn.addEventListener('click', ()=>{
-        const html = `<!doctype html>\n${document.documentElement.outerHTML}`;
-        const blob = new Blob([html], {type: 'text/html'});
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url; a.download = 'tax_guide_armenia.html';
-        document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
-      });
-    }
-
-    // Mobile drawer toggle: open/close TOC on small screens
-    const mobileToggleBtn = document.getElementById('mobileToggle');
-    const siteToc = document.getElementById('siteToc');
-    const drawerOverlay = document.getElementById('drawerOverlay');
-
-    function openDrawer(){
-      if (!siteToc) return;
-      siteToc.classList.remove('hidden');
-      // ensure transition runs
-      requestAnimationFrame(()=> siteToc.classList.add('open'));
-      if (drawerOverlay) drawerOverlay.classList.add('visible');
-      if (mobileToggleBtn) mobileToggleBtn.setAttribute('aria-expanded','true');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeDrawer(){
-      if (!siteToc) return;
-      siteToc.classList.remove('open');
-      if (drawerOverlay) drawerOverlay.classList.remove('visible');
-      if (mobileToggleBtn) mobileToggleBtn.setAttribute('aria-expanded','false');
-      document.body.style.overflow = '';
-      // hide after transition completes
-      setTimeout(()=>{
-        if (!siteToc.classList.contains('open')) siteToc.classList.add('hidden');
-      }, 260);
-    }
-
-    if (mobileToggleBtn){
-      mobileToggleBtn.addEventListener('click', ()=>{
-        if (!siteToc) return;
-        const isOpen = siteToc.classList.contains('open');
-        if (isOpen) closeDrawer(); else openDrawer();
-      });
-    }
-
-    if (drawerOverlay) drawerOverlay.addEventListener('click', closeDrawer);
-    document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') closeDrawer(); });
-
-    // Download PDF (simple approach: print to PDF via print dialog) - guarded
-    const downloadPdfBtn = document.getElementById('downloadPdf');
-    if (downloadPdfBtn) downloadPdfBtn.addEventListener('click', ()=> window.print());
-
-    // Accessibility: focus outline
-    document.addEventListener('keydown', (e)=>{
-      if (e.key === 'Tab') document.body.classList.add('user-is-tabbing');
-    });
-  </script>
-</body>
+  <article id="social" class="card" data-title="Սոցիալական վճար">
+    <header class="flex items-center justify-between">
+      <h3 class="text-xl font-semibold"><span class="accent-grad-3">Սոցիալական Վճար</span></h3>
+      <button class="toggleBtn btn-ghost text-sm px-2 py-1 rounded border">փակել</button>
+    </header>
+    <div class="mt-3 content">
+      <p class="text-gray-300">Սոցիալական վճարները նախատեսված են սոցիալական ապահովության համակարգի ֆինանսավորման համար։</p>
+      <p class="text-gray-300 mt-2">Դրույքաչափերը սահմանվում են ՀՀ օրենսդրությամբ և կարող են տարբեր լինել աշխատակիցների և գործատուների համար։</p>
+    </div>
+  </article>
+      </section>
+    </main>
+  </body>
 </html>
